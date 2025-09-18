@@ -1,58 +1,88 @@
 from .pokedex import verifyType, verifyNumber, MAXNUMBER, TYPES
+from typing import Optional, Union
 
 
 class Pokemon:
-    """Classe que representa um Pokémon."""
-    def __init__(self, name, type, number):
+    """Representa um Pokémon com nome, tipo e número.
 
+    Attributes:
+        name (str): Nome do Pokémon.
+        type (str): Tipo do Pokémon (deve estar entre os tipos válidos em TYPES).
+        number (int): Número do Pokémon (deve estar entre 1 e MAXNUMBER).
+    """
+
+    def __init__(self, name: str, type: str, number: int):
+        """
+        Inicializa um Pokémon.
+
+        Args:
+            name (str): Nome do Pokémon.
+            type (str): Tipo do Pokémon.
+            number (int): Número do Pokémon.
+
+        Raises:
+            ValueError: Se o número ou tipo forem inválidos.
+        """
         if not verifyNumber(number):
             raise ValueError(f"Pokemon de número inválido deve estar entre 1 e {MAXNUMBER}")
         if not verifyType(type):
             raise ValueError(f"Tipo inválido! Deve estar entre {TYPES}")
-        
+
         self.name = name
         self.type = type
         self.number = number
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """Retorna uma representação amigável do Pokémon."""
         return f"#{self.number} {self.name} ({self.type})"
-    
-class Pokedex:
-    """Classe que representa uma pokedex."""
-    def __init__(self):
-        self.pokemons = {}
-    
-    def register(self, pokemon):
-        """
-        Funcionalidade de registrar um Pokémon na pokedex.
 
-        recebe um objeto pokemon que recebe os parametros name, type e number
-        type sendo um tipo String de um dos tipos definidos em types do modulo
-        pokedex
+
+class Pokedex:
+    """Representa uma Pokedex, que registra e gerencia Pokémon.
+
+    Attributes:
+        pokemons (dict[int, Pokemon]): Dicionário que mapeia número do Pokémon para o objeto Pokémon.
+    """
+
+    def __init__(self):
+        """Inicializa a Pokedex vazia."""
+        self.pokemons: dict[int, Pokemon] = {}
+
+    def register(self, pokemon: Pokemon) -> None:
+        """Registra um Pokémon na Pokedex.
+
+        Args:
+            pokemon (Pokemon): Objeto Pokémon a ser registrado.
+
+        Raises:
+            ValueError: Se o Pokémon já estiver registrado.
         """
         if pokemon.number in self.pokemons:
-            raise ValueError(f"Pokemon de número {pokemon.number} ja cadastrado")
-        else:
-            self.pokemons[pokemon.number] = pokemon
-            print(f"{pokemon.name} cadastrado com sucesso!")
-    
-    def search(self, number):
-        """
-        Funcionalidade para buscar um Pokémon na pokedex pelo numero
+            raise ValueError(f"Pokemon de número {pokemon.number} já cadastrado")
+        self.pokemons[pokemon.number] = pokemon
+        print(f"{pokemon.name} cadastrado com sucesso!")
 
-        recebe um inteiro que representa o numero do Pokémon.
-        retorna um objeto pokemon
+    def search(self, number: int) -> Union[Pokemon, str]:
+        """Busca um Pokémon pelo número.
+
+        Args:
+            number (int): Número do Pokémon.
+
+        Returns:
+            Pokemon | str: Objeto Pokémon se encontrado, ou mensagem de erro caso não exista.
         """
         return self.pokemons.get(number, "Pokémon não encontrado")
-    
-    def update(self, number, name=None, type=None):
-        """
-        Funcionalidade para atualizar um Pokémon na pokedex pelo numero
-        
-        recebe parametros number (número do pokemon a ser atualizado),
-        dados name (nome do pokemon a ser atualizado) e type (tipo do pokemon a ser atualizado)
-        retorna mensagem de sucesso, caso operação seja bem sucedida.
-        retorna mensagem de erro, caso operação falhe
+
+    def update(self, number: int, name: Optional[str] = None, type: Optional[str] = None) -> None:
+        """Atualiza as informações de um Pokémon pelo número.
+
+        Args:
+            number (int): Número do Pokémon a ser atualizado.
+            name (str, optional): Novo nome do Pokémon. Defaults to None.
+            type (str, optional): Novo tipo do Pokémon. Defaults to None.
+
+        Prints:
+            Mensagem de sucesso ou erro dependendo do resultado da atualização.
         """
         if number not in self.pokemons:
             print("Pokémon não encontrado!")
@@ -66,11 +96,14 @@ class Pokedex:
                 print(f"Tipo inválido! Deve estar entre {TYPES}")
         print(f"Pokémon #{number} atualizado!")
 
-    def delete(self, number):
-        """
-        Deleta um Pokémon da pokedex pelo numero
+    def delete(self, number: int) -> None:
+        """Deleta um Pokémon pelo número.
 
-        recebe um inteiro que representa o numero do Pokémon
+        Args:
+            number (int): Número do Pokémon a ser removido.
+
+        Prints:
+            Mensagem de sucesso ou erro dependendo se o Pokémon existia ou não.
         """
         if number in self.pokemons:
             del self.pokemons[number]
@@ -78,8 +111,7 @@ class Pokedex:
         else:
             print("Pokémon não encontrado!")
 
-    def getAll(self):
-        """Imprime todos os Pokémon registrados na pokedex"""
+    def getAll(self) -> None:
+        """Imprime todos os Pokémon registrados na Pokedex, ordenados pelo número."""
         for p in sorted(self.pokemons.values(), key=lambda x: x.number):
             print(p)
-

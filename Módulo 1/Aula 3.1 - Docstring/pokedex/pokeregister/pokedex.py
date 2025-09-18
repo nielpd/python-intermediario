@@ -1,23 +1,31 @@
 MAXNUMBER = 150
-TYPES = ('Normal', 'Fogo', 'Água', 'Planta', 'Elétrico', 'Gelo', 
-         'Lutador', 'Venenoso', 'Terra', 'Voador', 'Psíquico', 
-         'Inseto', 'Pedra', 'Fantasma', 'Dragão', 
-         'Noturno', 'Metálico', 'Fada')
+TYPES = (
+    'Normal', 'Fogo', 'Água', 'Planta', 'Elétrico', 'Gelo',
+    'Lutador', 'Venenoso', 'Terra', 'Voador', 'Psíquico',
+    'Inseto', 'Pedra', 'Fantasma', 'Dragão',
+    'Noturno', 'Metálico', 'Fada'
+)
 
-def verifyType(type): 
-    """Verifica se o tipo é um dos tipos permitidos.
-    
-    recebe uma string que representa um dos tipos permitidos.
-    retorna um booleano se o tipo é permitido ou nao
+
+def verifyType(type: str) -> bool:
+    """Verifica se o tipo informado é válido.
+
+    Args:
+        type (str): Tipo do Pokémon a ser verificado.
+
+    Returns:
+        bool: True se o tipo estiver em `TYPES`, False caso contrário.
     """
     return type in TYPES
-  
 
-def verifyNumber(n):
-    """
-    Verifica se o número do Pokémon é permitido.
 
-    recebe um inteiro que representa o número do Pokémon.
-    retorna um booleano se o número é permitido ou nao
+def verifyNumber(n: int) -> bool:
+    """Verifica se o número do Pokémon está dentro do intervalo permitido.
+
+    Args:
+        n (int): Número do Pokémon a ser verificado.
+
+    Returns:
+        bool: True se o número estiver entre 1 e `MAXNUMBER`, False caso contrário.
     """
     return 1 <= n <= MAXNUMBER

@@ -16,14 +16,20 @@
 <td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
     
 <tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
-<td class="singlecolumn"><dl><dt><a name="-verifyNumber"><strong>verifyNumber</strong></a>(n)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;o&nbsp;número&nbsp;do&nbsp;Pokémon&nbsp;é&nbsp;permitido.<br>
+<td class="singlecolumn"><dl><dt><a name="-verifyNumber"><strong>verifyNumber</strong></a>(n: int) -&gt; bool</dt><dd><span class="code">Verifica&nbsp;se&nbsp;o&nbsp;número&nbsp;do&nbsp;Pokémon&nbsp;está&nbsp;dentro&nbsp;do&nbsp;intervalo&nbsp;permitido.<br>
 &nbsp;<br>
-recebe&nbsp;um&nbsp;inteiro&nbsp;que&nbsp;representa&nbsp;o&nbsp;número&nbsp;do&nbsp;Pokémon.<br>
-retorna&nbsp;um&nbsp;booleano&nbsp;se&nbsp;o&nbsp;número&nbsp;é&nbsp;permitido&nbsp;ou&nbsp;nao</span></dd></dl>
- <dl><dt><a name="-verifyType"><strong>verifyType</strong></a>(type)</dt><dd><span class="code">Verifica&nbsp;se&nbsp;o&nbsp;tipo&nbsp;é&nbsp;um&nbsp;dos&nbsp;tipos&nbsp;permitidos.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;n&nbsp;(int):&nbsp;Número&nbsp;do&nbsp;Pokémon&nbsp;a&nbsp;ser&nbsp;verificado.<br>
 &nbsp;<br>
-recebe&nbsp;uma&nbsp;string&nbsp;que&nbsp;representa&nbsp;um&nbsp;dos&nbsp;tipos&nbsp;permitidos.<br>
-retorna&nbsp;um&nbsp;booleano&nbsp;se&nbsp;o&nbsp;tipo&nbsp;é&nbsp;permitido&nbsp;ou&nbsp;nao</span></dd></dl>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;se&nbsp;o&nbsp;número&nbsp;estiver&nbsp;entre&nbsp;1&nbsp;e&nbsp;`MAXNUMBER`,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
+ <dl><dt><a name="-verifyType"><strong>verifyType</strong></a>(type: str) -&gt; bool</dt><dd><span class="code">Verifica&nbsp;se&nbsp;o&nbsp;tipo&nbsp;informado&nbsp;é&nbsp;válido.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Tipo&nbsp;do&nbsp;Pokémon&nbsp;a&nbsp;ser&nbsp;verificado.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;se&nbsp;o&nbsp;tipo&nbsp;estiver&nbsp;em&nbsp;`TYPES`,&nbsp;False&nbsp;caso&nbsp;contrário.</span></dd></dl>
 </td></tr></table><p>
 <table class="section">
 <tr class="decor data-decor heading-text">

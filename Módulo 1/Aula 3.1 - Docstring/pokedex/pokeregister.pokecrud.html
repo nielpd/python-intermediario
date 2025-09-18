@@ -31,34 +31,54 @@
 <td class="section-title" colspan=3>&nbsp;<br><a name="Pokedex">class <strong>Pokedex</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code">Classe&nbsp;que&nbsp;representa&nbsp;uma&nbsp;pokedex.<br>&nbsp;</span></td></tr>
+<td class="decor title-decor" colspan=2><span class="code">Representa&nbsp;uma&nbsp;<a href="#Pokedex">Pokedex</a>,&nbsp;que&nbsp;registra&nbsp;e&nbsp;gerencia&nbsp;Pokémon.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pokemons&nbsp;(dict[int,&nbsp;<a href="#Pokemon">Pokemon</a>]):&nbsp;Dicionário&nbsp;que&nbsp;mapeia&nbsp;número&nbsp;do&nbsp;Pokémon&nbsp;para&nbsp;o&nbsp;objeto&nbsp;Pokémon.<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="Pokedex-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+<dl><dt><a name="Pokedex-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Inicializa&nbsp;a&nbsp;<a href="#Pokedex">Pokedex</a>&nbsp;vazia.</span></dd></dl>
 
-<dl><dt><a name="Pokedex-delete"><strong>delete</strong></a>(self, number)</dt><dd><span class="code">Deleta&nbsp;um&nbsp;Pokémon&nbsp;da&nbsp;pokedex&nbsp;pelo&nbsp;numero<br>
+<dl><dt><a name="Pokedex-delete"><strong>delete</strong></a>(self, number: int) -&gt; None</dt><dd><span class="code">Deleta&nbsp;um&nbsp;Pokémon&nbsp;pelo&nbsp;número.<br>
 &nbsp;<br>
-recebe&nbsp;um&nbsp;inteiro&nbsp;que&nbsp;representa&nbsp;o&nbsp;numero&nbsp;do&nbsp;Pokémon</span></dd></dl>
-
-<dl><dt><a name="Pokedex-getAll"><strong>getAll</strong></a>(self)</dt><dd><span class="code">Imprime&nbsp;todos&nbsp;os&nbsp;Pokémon&nbsp;registrados&nbsp;na&nbsp;pokedex</span></dd></dl>
-
-<dl><dt><a name="Pokedex-register"><strong>register</strong></a>(self, pokemon)</dt><dd><span class="code">Funcionalidade&nbsp;de&nbsp;registrar&nbsp;um&nbsp;Pokémon&nbsp;na&nbsp;pokedex.<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;(int):&nbsp;Número&nbsp;do&nbsp;Pokémon&nbsp;a&nbsp;ser&nbsp;removido.<br>
 &nbsp;<br>
-recebe&nbsp;um&nbsp;objeto&nbsp;pokemon&nbsp;que&nbsp;recebe&nbsp;os&nbsp;parametros&nbsp;name,&nbsp;type&nbsp;e&nbsp;number<br>
-type&nbsp;sendo&nbsp;um&nbsp;tipo&nbsp;String&nbsp;de&nbsp;um&nbsp;dos&nbsp;tipos&nbsp;definidos&nbsp;em&nbsp;types&nbsp;do&nbsp;modulo<br>
-pokedex</span></dd></dl>
+Prints:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Mensagem&nbsp;de&nbsp;sucesso&nbsp;ou&nbsp;erro&nbsp;dependendo&nbsp;se&nbsp;o&nbsp;Pokémon&nbsp;existia&nbsp;ou&nbsp;não.</span></dd></dl>
 
-<dl><dt><a name="Pokedex-search"><strong>search</strong></a>(self, number)</dt><dd><span class="code">Funcionalidade&nbsp;para&nbsp;buscar&nbsp;um&nbsp;Pokémon&nbsp;na&nbsp;pokedex&nbsp;pelo&nbsp;numero<br>
-&nbsp;<br>
-recebe&nbsp;um&nbsp;inteiro&nbsp;que&nbsp;representa&nbsp;o&nbsp;numero&nbsp;do&nbsp;Pokémon.<br>
-retorna&nbsp;um&nbsp;objeto&nbsp;pokemon</span></dd></dl>
+<dl><dt><a name="Pokedex-getAll"><strong>getAll</strong></a>(self) -&gt; None</dt><dd><span class="code">Imprime&nbsp;todos&nbsp;os&nbsp;Pokémon&nbsp;registrados&nbsp;na&nbsp;<a href="#Pokedex">Pokedex</a>,&nbsp;ordenados&nbsp;pelo&nbsp;número.</span></dd></dl>
 
-<dl><dt><a name="Pokedex-update"><strong>update</strong></a>(self, number, name=None, type=None)</dt><dd><span class="code">Funcionalidade&nbsp;para&nbsp;atualizar&nbsp;um&nbsp;Pokémon&nbsp;na&nbsp;pokedex&nbsp;pelo&nbsp;numero<br>
+<dl><dt><a name="Pokedex-register"><strong>register</strong></a>(self, pokemon: pokeregister.pokecrud.Pokemon) -&gt; None</dt><dd><span class="code">Registra&nbsp;um&nbsp;Pokémon&nbsp;na&nbsp;<a href="#Pokedex">Pokedex</a>.<br>
 &nbsp;<br>
-recebe&nbsp;parametros&nbsp;number&nbsp;(número&nbsp;do&nbsp;pokemon&nbsp;a&nbsp;ser&nbsp;atualizado),<br>
-dados&nbsp;name&nbsp;(nome&nbsp;do&nbsp;pokemon&nbsp;a&nbsp;ser&nbsp;atualizado)&nbsp;e&nbsp;type&nbsp;(tipo&nbsp;do&nbsp;pokemon&nbsp;a&nbsp;ser&nbsp;atualizado)<br>
-retorna&nbsp;mensagem&nbsp;de&nbsp;sucesso,&nbsp;caso&nbsp;operação&nbsp;seja&nbsp;bem&nbsp;sucedida.<br>
-retorna&nbsp;mensagem&nbsp;de&nbsp;erro,&nbsp;caso&nbsp;operação&nbsp;falhe</span></dd></dl>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pokemon&nbsp;(<a href="#Pokemon">Pokemon</a>):&nbsp;Objeto&nbsp;Pokémon&nbsp;a&nbsp;ser&nbsp;registrado.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ValueError:&nbsp;Se&nbsp;o&nbsp;Pokémon&nbsp;já&nbsp;estiver&nbsp;registrado.</span></dd></dl>
+
+<dl><dt><a name="Pokedex-search"><strong>search</strong></a>(self, number: int) -&gt; Union[pokeregister.pokecrud.Pokemon, str]</dt><dd><span class="code">Busca&nbsp;um&nbsp;Pokémon&nbsp;pelo&nbsp;número.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;(int):&nbsp;Número&nbsp;do&nbsp;Pokémon.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#Pokemon">Pokemon</a>&nbsp;|&nbsp;str:&nbsp;Objeto&nbsp;Pokémon&nbsp;se&nbsp;encontrado,&nbsp;ou&nbsp;mensagem&nbsp;de&nbsp;erro&nbsp;caso&nbsp;não&nbsp;exista.</span></dd></dl>
+
+<dl><dt><a name="Pokedex-update"><strong>update</strong></a>(
+    self,
+    number: int,
+    name: Optional[str] = None,
+    type: Optional[str] = None
+) -&gt; None</dt><dd><span class="code">Atualiza&nbsp;as&nbsp;informações&nbsp;de&nbsp;um&nbsp;Pokémon&nbsp;pelo&nbsp;número.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;(int):&nbsp;Número&nbsp;do&nbsp;Pokémon&nbsp;a&nbsp;ser&nbsp;atualizado.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;(str,&nbsp;optional):&nbsp;Novo&nbsp;nome&nbsp;do&nbsp;Pokémon.&nbsp;Defaults&nbsp;to&nbsp;None.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str,&nbsp;optional):&nbsp;Novo&nbsp;tipo&nbsp;do&nbsp;Pokémon.&nbsp;Defaults&nbsp;to&nbsp;None.<br>
+&nbsp;<br>
+Prints:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Mensagem&nbsp;de&nbsp;sucesso&nbsp;ou&nbsp;erro&nbsp;dependendo&nbsp;do&nbsp;resultado&nbsp;da&nbsp;atualização.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -74,14 +94,27 @@ Data descriptors defined here:<br>
 <td class="section-title" colspan=3>&nbsp;<br><a name="Pokemon">class <strong>Pokemon</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
     
 <tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
-<td class="decor title-decor" colspan=2><span class="code"><a href="#Pokemon">Pokemon</a>(name,&nbsp;type,&nbsp;number)<br>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Pokemon">Pokemon</a>(name:&nbsp;str,&nbsp;type:&nbsp;str,&nbsp;number:&nbsp;int)<br>
 &nbsp;<br>
-Classe&nbsp;que&nbsp;representa&nbsp;um&nbsp;Pokémon.<br>&nbsp;</span></td></tr>
+Representa&nbsp;um&nbsp;Pokémon&nbsp;com&nbsp;nome,&nbsp;tipo&nbsp;e&nbsp;número.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;(str):&nbsp;Nome&nbsp;do&nbsp;Pokémon.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Tipo&nbsp;do&nbsp;Pokémon&nbsp;(deve&nbsp;estar&nbsp;entre&nbsp;os&nbsp;tipos&nbsp;válidos&nbsp;em&nbsp;TYPES).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;(int):&nbsp;Número&nbsp;do&nbsp;Pokémon&nbsp;(deve&nbsp;estar&nbsp;entre&nbsp;1&nbsp;e&nbsp;MAXNUMBER).<br>&nbsp;</span></td></tr>
 <tr><td>&nbsp;</td>
 <td class="singlecolumn">Methods defined here:<br>
-<dl><dt><a name="Pokemon-__init__"><strong>__init__</strong></a>(self, name, type, number)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+<dl><dt><a name="Pokemon-__init__"><strong>__init__</strong></a>(self, name: str, type: str, number: int)</dt><dd><span class="code">Inicializa&nbsp;um&nbsp;Pokémon.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;(str):&nbsp;Nome&nbsp;do&nbsp;Pokémon.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;(str):&nbsp;Tipo&nbsp;do&nbsp;Pokémon.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;number&nbsp;(int):&nbsp;Número&nbsp;do&nbsp;Pokémon.<br>
+&nbsp;<br>
+Raises:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;ValueError:&nbsp;Se&nbsp;o&nbsp;número&nbsp;ou&nbsp;tipo&nbsp;forem&nbsp;inválidos.</span></dd></dl>
 
-<dl><dt><a name="Pokemon-__str__"><strong>__str__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+<dl><dt><a name="Pokemon-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><span class="code">Retorna&nbsp;uma&nbsp;representação&nbsp;amigável&nbsp;do&nbsp;Pokémon.</span></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>
@@ -98,5 +131,7 @@ Data descriptors defined here:<br>
     
 <tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
 <td class="singlecolumn"><strong>MAXNUMBER</strong> = 150<br>
-<strong>TYPES</strong> = ('Normal', 'Fogo', 'Água', 'Planta', 'Elétrico', 'Gelo', 'Lutador', 'Venenoso', 'Terra', 'Voador', 'Psíquico', 'Inseto', 'Pedra', 'Fantasma', 'Dragão', 'Noturno', 'Metálico', 'Fada')</td></tr></table>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>TYPES</strong> = ('Normal', 'Fogo', 'Água', 'Planta', 'Elétrico', 'Gelo', 'Lutador', 'Venenoso', 'Terra', 'Voador', 'Psíquico', 'Inseto', 'Pedra', 'Fantasma', 'Dragão', 'Noturno', 'Metálico', 'Fada')<br>
+<strong>Union</strong> = typing.Union</td></tr></table>
 </body></html>
