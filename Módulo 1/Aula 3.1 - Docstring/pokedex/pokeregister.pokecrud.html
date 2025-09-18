@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module pokeregister.pokecrud</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title"><a href="pokeregister.html" class="white">pokeregister</a>.pokecrud</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cusuario%5Cdocuments%5Cgit%5Cpd%5Cpython-intermediario%5Cm%C3%B3dulo%201%5Caula%203.1%20-%20docstring%5Cpokedex%5Cpokeregister%5Cpokecrud.py">c:\users\usuario\documents\git\pd\python-intermediario\módulo 1\aula 3.1 - docstring\pokedex\pokeregister\pokecrud.py</a></td></tr></table>
+    <p></p>
+<p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="pokeregister.pokecrud.html#Pokedex">Pokedex</a>
+</dt><dt class="heading-text"><a href="pokeregister.pokecrud.html#Pokemon">Pokemon</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Pokedex">class <strong>Pokedex</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Classe&nbsp;que&nbsp;representa&nbsp;uma&nbsp;pokedex.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Pokedex-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="Pokedex-delete"><strong>delete</strong></a>(self, number)</dt><dd><span class="code">Deleta&nbsp;um&nbsp;Pokémon&nbsp;da&nbsp;pokedex&nbsp;pelo&nbsp;numero<br>
+&nbsp;<br>
+recebe&nbsp;um&nbsp;inteiro&nbsp;que&nbsp;representa&nbsp;o&nbsp;numero&nbsp;do&nbsp;Pokémon</span></dd></dl>
+
+<dl><dt><a name="Pokedex-getAll"><strong>getAll</strong></a>(self)</dt><dd><span class="code">Imprime&nbsp;todos&nbsp;os&nbsp;Pokémon&nbsp;registrados&nbsp;na&nbsp;pokedex</span></dd></dl>
+
+<dl><dt><a name="Pokedex-register"><strong>register</strong></a>(self, pokemon)</dt><dd><span class="code">Funcionalidade&nbsp;de&nbsp;registrar&nbsp;um&nbsp;Pokémon&nbsp;na&nbsp;pokedex.<br>
+&nbsp;<br>
+recebe&nbsp;um&nbsp;objeto&nbsp;pokemon&nbsp;que&nbsp;recebe&nbsp;os&nbsp;parametros&nbsp;name,&nbsp;type&nbsp;e&nbsp;number<br>
+type&nbsp;sendo&nbsp;um&nbsp;tipo&nbsp;String&nbsp;de&nbsp;um&nbsp;dos&nbsp;tipos&nbsp;definidos&nbsp;em&nbsp;types&nbsp;do&nbsp;modulo<br>
+pokedex</span></dd></dl>
+
+<dl><dt><a name="Pokedex-search"><strong>search</strong></a>(self, number)</dt><dd><span class="code">Funcionalidade&nbsp;para&nbsp;buscar&nbsp;um&nbsp;Pokémon&nbsp;na&nbsp;pokedex&nbsp;pelo&nbsp;numero<br>
+&nbsp;<br>
+recebe&nbsp;um&nbsp;inteiro&nbsp;que&nbsp;representa&nbsp;o&nbsp;numero&nbsp;do&nbsp;Pokémon.<br>
+retorna&nbsp;um&nbsp;objeto&nbsp;pokemon</span></dd></dl>
+
+<dl><dt><a name="Pokedex-update"><strong>update</strong></a>(self, number, name=None, type=None)</dt><dd><span class="code">Funcionalidade&nbsp;para&nbsp;atualizar&nbsp;um&nbsp;Pokémon&nbsp;na&nbsp;pokedex&nbsp;pelo&nbsp;numero<br>
+&nbsp;<br>
+recebe&nbsp;parametros&nbsp;number&nbsp;(número&nbsp;do&nbsp;pokemon&nbsp;a&nbsp;ser&nbsp;atualizado),<br>
+dados&nbsp;name&nbsp;(nome&nbsp;do&nbsp;pokemon&nbsp;a&nbsp;ser&nbsp;atualizado)&nbsp;e&nbsp;type&nbsp;(tipo&nbsp;do&nbsp;pokemon&nbsp;a&nbsp;ser&nbsp;atualizado)<br>
+retorna&nbsp;mensagem&nbsp;de&nbsp;sucesso,&nbsp;caso&nbsp;operação&nbsp;seja&nbsp;bem&nbsp;sucedida.<br>
+retorna&nbsp;mensagem&nbsp;de&nbsp;erro,&nbsp;caso&nbsp;operação&nbsp;falhe</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table> <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Pokemon">class <strong>Pokemon</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Pokemon">Pokemon</a>(name,&nbsp;type,&nbsp;number)<br>
+&nbsp;<br>
+Classe&nbsp;que&nbsp;representa&nbsp;um&nbsp;Pokémon.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Pokemon-__init__"><strong>__init__</strong></a>(self, name, type, number)</dt><dd><span class="code">Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</span></dd></dl>
+
+<dl><dt><a name="Pokemon-__str__"><strong>__str__</strong></a>(self)</dt><dd><span class="code">Return&nbsp;str(self).</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor data-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Data</strong></td></tr>
+    
+<tr><td class="decor data-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><strong>MAXNUMBER</strong> = 150<br>
+<strong>TYPES</strong> = ('Normal', 'Fogo', 'Água', 'Planta', 'Elétrico', 'Gelo', 'Lutador', 'Venenoso', 'Terra', 'Voador', 'Psíquico', 'Inseto', 'Pedra', 'Fantasma', 'Dragão', 'Noturno', 'Metálico', 'Fada')</td></tr></table>
+</body></html>
