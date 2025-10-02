@@ -1,0 +1,15 @@
+# Ignorar ambiente virtual
+Lib/
+Include/
+Scripts/
+pyvenv.cfg
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDEs / editores
+.vscode/
+.idea/
